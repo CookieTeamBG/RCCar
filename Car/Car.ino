@@ -41,7 +41,7 @@ void loop()
 
     switch (command)
     {
-      case: "LF": // left motor - forward
+      case: "RF": // right motor - forward
      
         break;
 
