@@ -29,18 +29,35 @@ void loop()
     uint8_t buf[3];
     uint8_t buflen = sizeof(buf);
 
-    if (driver.recv(buf, &buflen))
+  if (driver.recv(buf, &buflen))
+  {
+	  int i;
+
+	  driver.printBuffer("Got:", buf, buflen);
+
+    String data = (char*)buf;
+    Serial.println(data);
+    String command = data;
+
+    switch (command)
     {
-	    int i;
+      case: "LF": // left motor - forward
+     
+        break;
 
-	    driver.printBuffer("Got:", buf, buflen);
+      case: "RB": // right motor - backward
+     
+        break;
 
-      String data = (char*)buf;
-      Serial.println(data);
+      case: "LF": // left motor - forward
+     
+        break;
 
-      if (data == "qwe")
-      {
-        Serial.println("if");
-      }
+      case: "LB": // left motor - backward
+     
+        break;
+
+      default: break;
     }
+  }
 }
