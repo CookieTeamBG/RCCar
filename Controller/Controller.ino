@@ -1,7 +1,5 @@
 #include <RH_ASK.h>
-#ifdef RH_HAVE_HARDWARE_SPI
 #include <SPI.h>;
-#endif1
 
 RH_ASK driver(2000, 4, 5, 0); 
 
@@ -23,8 +21,9 @@ void setup()
 
 void loop()
 {
-    const char *msg = "motor1";
-
+    int leftXJoystick = analogRead(0);
+    const char *msg = "qwe";
+    Serial.println(leftXJoystick);
     driver.send((uint8_t *)msg, strlen(msg));
     driver.waitPacketSent();
     delay(200);

@@ -1,7 +1,7 @@
 
 #include <RH_ASK.h>
 #include <SPI.h>
-#include <AFMotor.h>
+//#include <AFMotor.h>
 
 RH_ASK driver;
 
@@ -30,7 +30,7 @@ void setup()
 
 void loop()
 {
-    uint8_t buf[100];
+    uint8_t buf[3];
     uint8_t buflen = sizeof(buf);
 
     if (driver.recv(buf, &buflen))
@@ -43,13 +43,11 @@ void loop()
       String data = (char*)buf;
       Serial.println(data);
 
-      if (data == "motor1")
+      if (data == "qwe")
       {
+        Serial.println("if"); 
         digitalWrite(13, HIGH);
-        deley(1000);
-        digitalWrite(13, LOW);
-        deley(1000);
-
+        delay(1000);
         // motor 1
         //motor1.run(RELEASE);
         //motor1.run(FORWARD);
@@ -58,5 +56,7 @@ void loop()
         //motor2.run(RELEASE);
         //motor2.run(FORWARD);
       }
+      digitalWrite(13, LOW);
+        delay(1000);
     }
 }
