@@ -1,8 +1,12 @@
 
 #include <RH_ASK.h>
-#include <SPI.h> 
+#include <SPI.h>
+#include <AFMotor.h>
 
 RH_ASK driver;
+
+
+
 void setup()
 {
     Serial.begin(115200);	
@@ -27,8 +31,16 @@ void loop()
     {
 	    int i;
 
-	      driver.printBuffer("Got:", buf, buflen);
-        String data = (char*)buf;
-        Serial.println(data);
+	    driver.printBuffer("Got:", buf, buflen);
+
+      // received data form the transmitter
+      String data = (char*)buf;
+      Serial.println(data);
+
+      if (data == "motor1")
+      {
+        
+      }
+
     }
 }

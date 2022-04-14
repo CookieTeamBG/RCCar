@@ -23,7 +23,7 @@ void setup()
 
 void loop()
 {
-    const char *msg = "hello";
+    const char *msg = "motor1";
 
     driver.send((uint8_t *)msg, strlen(msg));
     driver.waitPacketSent();
