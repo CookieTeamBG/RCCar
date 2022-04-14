@@ -1,12 +1,12 @@
-
 #include <RH_ASK.h>
 #include <SPI.h>
-//#include <AFMotor.h>
 
 RH_ASK driver;
 
-//AF_DCMotor motor1(1);
-//AF_DCMotor motor2(2);
+#define leftMotorPIN_FORWARD = 0;
+#define rightMotorPIN_FORWARD = 0;
+#define leftMotorPIN_BACKWARD = 0;
+#define rightMotorPIN_BACKWARD = 0;
 
 void setup()
 {
@@ -22,10 +22,6 @@ void setup()
     }
 
     pinMode(13, OUTPUT);
-
-    //motors
-    //motor1.setSpeed(255);
-    //motor2.setSpeed(255);
 }
 
 void loop()
@@ -39,24 +35,12 @@ void loop()
 
 	    driver.printBuffer("Got:", buf, buflen);
 
-      // received data form the transmitter
       String data = (char*)buf;
       Serial.println(data);
 
       if (data == "qwe")
       {
-        Serial.println("if"); 
-        digitalWrite(13, HIGH);
-        delay(1000);
-        // motor 1
-        //motor1.run(RELEASE);
-        //motor1.run(FORWARD);
-
-        // motor 2
-        //motor2.run(RELEASE);
-        //motor2.run(FORWARD);
+        Serial.println("if");
       }
-      digitalWrite(13, LOW);
-        delay(1000);
     }
 }
